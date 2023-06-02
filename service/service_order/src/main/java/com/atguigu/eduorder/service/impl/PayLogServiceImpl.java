@@ -34,6 +34,7 @@ public class PayLogServiceImpl extends ServiceImpl<PayLogMapper, PayLog> impleme
     private OrderService orderService;
     @Override
     public Map createNative(String orderNo) {
+//        System.out.println("888666");
         try {
             QueryWrapper<Order> wrapper =new QueryWrapper();
             wrapper.eq("order_no",orderNo);

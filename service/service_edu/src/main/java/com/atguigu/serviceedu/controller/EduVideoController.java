@@ -6,6 +6,7 @@ import com.atguigu.serviceedu.client.VodClient;
 import com.atguigu.serviceedu.entity.EduVideo;
 import com.atguigu.serviceedu.service.EduVideoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,6 +45,12 @@ public class EduVideoController {
         }
         videoService.removeById(id);
         return R.ok();
+    }
+
+    @GetMapping("getVideoById/{id}")
+    public R getVideoById(@PathVariable String id){
+        EduVideo eduVideo = videoService.getById(id);
+        return R.ok().data("video",eduVideo);
     }
 
 
